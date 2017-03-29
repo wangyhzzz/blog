@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion ">
+<html class="theme-next use-motion theme-next-mist">
 <head>
   
 
@@ -18,19 +18,9 @@
 
 
 
+	<meta name="keywords" content="vpn," />
 
-    <meta name="keywords" content="Hexo,next" />
-
-
-
-
-
-    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
-
-
-
-
-  <title> debian 搭建 vpn // Hexo </title>
+  <title> debian 系统使用 vpn // HiHi </title>
 </head>
 
 <body>
@@ -45,7 +35,7 @@
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">HiHi</span>
   </a>
   <span class="logo-line-after"><i></i></span>
 </h1>
@@ -101,7 +91,7 @@
           
           
             
-              debian 搭建 vpn
+              debian 系统使用 vpn
             
           
         </h1>
@@ -126,12 +116,31 @@
       
 
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apt-get install pptpd</span><br><span class="line"><span class="built_in">echo</span> &gt;&gt;/etc/ppp/pptpd.conf&lt;&lt;EOF</span><br><span class="line">localip <span class="number">192.168</span>.<span class="number">0.1</span></span><br><span class="line">remoteip <span class="number">192.168</span>.<span class="number">0.200</span>-<span class="number">238</span>,<span class="number">192.168</span>.<span class="number">0.245</span> </span><br><span class="line">EOF</span><br><span class="line">sed -i <span class="string">'s/#ms-dns/ms-dns/'</span>  /etc/ppp/pptpd-options</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'debian pptpd password *'</span> &gt;&gt;   /etc/ppp/pptpd-options</span><br><span class="line">service pptpd restart</span><br><span class="line">sed -i <span class="string">'s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/'</span> /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br><span class="line"><span class="comment">#eth0需要是能连接外网的那块网卡</span></span><br><span class="line">iptables -t nat -A POSTROUTING <span class="operator">-s</span> <span class="number">192.168</span>.<span class="number">0.0</span>/<span class="number">24</span> -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+        <p><strong> 服务器搭建</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apt-get install pptpd</span><br><span class="line">cat &gt;&gt;/etc/ppp/pptpd.conf&lt;&lt;EOF</span><br><span class="line">localip <span class="number">192.168</span>.<span class="number">0.1</span></span><br><span class="line">remoteip <span class="number">192.168</span>.<span class="number">0.200</span>-<span class="number">238</span>,<span class="number">192.168</span>.<span class="number">0.245</span> </span><br><span class="line">EOF</span><br><span class="line">sed -i <span class="string">'s/#ms-dns/ms-dns/'</span>  /etc/ppp/pptpd-options</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'debian pptpd password *'</span> &gt;&gt;   /etc/ppp/chap-sercet</span><br><span class="line">service pptpd restart</span><br><span class="line">sed -i <span class="string">'s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/'</span> /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br><span class="line"><span class="comment">#eth0需要是能连接外网的那块网卡</span></span><br><span class="line">iptables -t nat -A POSTROUTING <span class="operator">-s</span> <span class="number">192.168</span>.<span class="number">0.0</span>/<span class="number">24</span> -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure></p>
+<p><strong>自动安装脚本</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/lknife/openvz_pptp_centos-debian-ubuntu/raw/master/auto-debian-ovz-pptp.sh</span><br><span class="line">ssh root@<span class="number">123.156</span>.<span class="number">78.9</span> curl dn-shell.qbox.me/vpn.sh | sh</span><br></pre></td></tr></table></figure></p>
+<p><strong> 客户端使用</strong></p>
+<ul>
+<li><p>创建并连接vpn </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pptpsetup --create vpn --server <span class="number">123.45</span>.<span class="number">67.89</span> --username debian --password password --encrypt --start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>临时想断开vpn</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo poff</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>继续连接刚才创建的vpn</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pon vpn</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
 
     <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vpn/"> #vpn </a>
+          
+        </div>
       
 
       
@@ -143,8 +152,6 @@
           </div>
 
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/04/12/hello-world/">Hello World</a>
             
           </div>
         </div>
@@ -194,14 +201,14 @@
 
       <div class="site-overview">
         <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="John Doe" />
-          <p class="site-author-name">John Doe</p>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="HiHi" />
+          <p class="site-author-name">HiHi</p>
         </div>
         <p class="site-description motion-element"></p>
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -215,7 +222,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -257,11 +264,11 @@
         <div class="copyright">
   
   &copy; &nbsp; 
-  2015
+  2017
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author">John Doe</span>
+  <span class="author">HiHi</span>
 </div>
 
 <div class="powered-by">
@@ -271,7 +278,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
@@ -390,6 +397,9 @@
       $.Velocity.RunSequence([
         { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
         { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
         
         { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
       ]);

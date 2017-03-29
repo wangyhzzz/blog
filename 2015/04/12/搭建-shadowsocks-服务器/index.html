@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion ">
+<html class="theme-next use-motion theme-next-mist">
 <head>
   
 
@@ -30,7 +30,7 @@
 
 
 
-  <title> 搭建 shadowsocks 服务器 // Hexo </title>
+  <title> 搭建 shadowsocks 服务器 // HiHi </title>
 </head>
 
 <body>
@@ -45,7 +45,7 @@
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">HiHi</span>
   </a>
   <span class="logo-line-after"><i></i></span>
 </h1>
@@ -126,7 +126,8 @@
       
 
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br><span class="line">sudo ssserver -p <span class="number">443</span> -k password -m aes-<span class="number">256</span>-cfb --user nobody <span class="operator">-d</span> start</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br><span class="line">ssserver -p <span class="number">443</span> -k password -m rc4-md5 --user nobody <span class="operator">-d</span> start</span><br></pre></td></tr></table></figure>
+<p>自动安装脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@<span class="number">123.156</span>.<span class="number">78.9</span> curl dn-shell.qbox.me/shadowsocks.sh | sh</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://github.com/shadowsocks/shadowsocks" target="_blank" rel="external">ShadowSocks github主页</a></p>
 
       
@@ -139,13 +140,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/12/a-b/">a b</a>
+              <a href="/2015/04/12/树莓派安装node/">树莓派安装node</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/12/debian-搭建-vpn/">debian 搭建 vpn</a>
+              <a href="/2015/04/12/debian-搭建-vpn/">debian 系统使用 vpn</a>
             
           </div>
         </div>
@@ -195,14 +196,14 @@
 
       <div class="site-overview">
         <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="John Doe" />
-          <p class="site-author-name">John Doe</p>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="HiHi" />
+          <p class="site-author-name">HiHi</p>
         </div>
         <p class="site-description motion-element"></p>
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -216,7 +217,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -258,11 +259,11 @@
         <div class="copyright">
   
   &copy; &nbsp; 
-  2015
+  2017
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author">John Doe</span>
+  <span class="author">HiHi</span>
 </div>
 
 <div class="powered-by">
@@ -272,7 +273,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
@@ -391,6 +392,9 @@
       $.Velocity.RunSequence([
         { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
         { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
         
         { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
       ]);

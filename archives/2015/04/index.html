@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion ">
+<html class="theme-next use-motion theme-next-mist">
 <head>
   
 
@@ -30,7 +30,7 @@
 
 
 
-  <title> 归档 // Hexo </title>
+  <title> 归档 // HiHi </title>
 </head>
 
 <body>
@@ -45,7 +45,7 @@
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">HiHi</span>
   </a>
   <span class="logo-line-after"><i></i></span>
 </h1>
@@ -97,7 +97,7 @@
       
        
       
-      嗯..! 目前共计 5 篇日志。 继续努力。
+      嗯..! 目前共计 21 篇日志。 继续努力。
     </span>
 
     
@@ -121,14 +121,14 @@
 
       <div class="post-title">
         
-            <a class="post-title-link" href="/2015/04/12/树莓派安装node/">
-              树莓派安装node
+            <a class="post-title-link" href="/2015/04/14/vim/">
+              vim
             </a>
         
       </div>
 
       <div class="post-meta">
-        <span class="post-time"> 04-12 </span>
+        <span class="post-time"> 04-14 </span>
       </div>
 
     </div>
@@ -152,8 +152,39 @@
 
       <div class="post-title">
         
-            <a class="post-title-link" href="/2015/04/12/a-b/">
-              a b
+            <a class="post-title-link" href="/2015/04/14/sed/">
+              sed 相关使用
+            </a>
+        
+      </div>
+
+      <div class="post-meta">
+        <span class="post-time"> 04-14 </span>
+      </div>
+
+    </div>
+  </div>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <div class="post post-type-normal">
+    <div class="post-header">
+
+      <div class="post-title">
+        
+            <a class="post-title-link" href="/2015/04/12/树莓派安装node/">
+              树莓派安装node
             </a>
         
       </div>
@@ -215,38 +246,7 @@
       <div class="post-title">
         
             <a class="post-title-link" href="/2015/04/12/debian-搭建-vpn/">
-              debian 搭建 vpn
-            </a>
-        
-      </div>
-
-      <div class="post-meta">
-        <span class="post-time"> 04-12 </span>
-      </div>
-
-    </div>
-  </div>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <div class="post post-type-normal">
-    <div class="post-header">
-
-      <div class="post-title">
-        
-            <a class="post-title-link" href="/2015/04/12/hello-world/">
-              Hello World
+              debian 系统使用 vpn
             </a>
         
       </div>
@@ -287,14 +287,14 @@
 
       <div class="site-overview">
         <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="John Doe" />
-          <p class="site-author-name">John Doe</p>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="HiHi" />
+          <p class="site-author-name">HiHi</p>
         </div>
         <p class="site-description motion-element"></p>
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -308,7 +308,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -339,11 +339,11 @@
         <div class="copyright">
   
   &copy; &nbsp; 
-  2015
+  2017
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author">John Doe</span>
+  <span class="author">HiHi</span>
 </div>
 
 <div class="powered-by">
@@ -353,7 +353,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
@@ -478,6 +478,9 @@
       $.Velocity.RunSequence([
         { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
         { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
         
         { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
       ]);

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion ">
+<html class="theme-next use-motion theme-next-mist">
 <head>
   
 
@@ -30,7 +30,7 @@
 
 
 
-  <title> 树莓派安装node // Hexo </title>
+  <title> 树莓派安装node // HiHi </title>
 </head>
 
 <body>
@@ -45,7 +45,7 @@
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">HiHi</span>
   </a>
   <span class="logo-line-after"><i></i></span>
 </h1>
@@ -127,9 +127,10 @@
 
       
         <blockquote>
-<p>   在树莓派上折腾node,直接apt-get 下来的版本过于老旧,源码安装也失败了,严重影响正常使用.(例如,无法使用hexo建立博客)</p>
+<p>在树莓派上折腾node,直接apt-get 下来的版本过于老旧,源码安装也失败了,严重影响正常使用.(例如,无法使用hexo建立博客)</p>
 </blockquote>
-<h3 id="以下是解决方案">以下是解决方案</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://node-arm.herokuapp.com/node_latest_armhf.deb</span><br><span class="line">sudo dpkg -i node_latest_armhf.deb</span><br></pre></td></tr></table></figure>
+<p> 解决方案:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://node-arm.herokuapp.com/node_latest_armhf.deb</span><br><span class="line">sudo dpkg -i node_latest_armhf.deb</span><br></pre></td></tr></table></figure>
 <p><a href="https://github.com/nathanjohnson320/node_arm/" target="_blank" rel="external">node_arm github主页</a></p>
 
       
@@ -142,11 +143,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2015/04/14/sed/">sed 相关使用</a>
+            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/12/a-b/">a b</a>
+              <a href="/2015/04/12/搭建-shadowsocks-服务器/">搭建 shadowsocks 服务器</a>
             
           </div>
         </div>
@@ -196,14 +199,14 @@
 
       <div class="site-overview">
         <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="John Doe" />
-          <p class="site-author-name">John Doe</p>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="HiHi" />
+          <p class="site-author-name">HiHi</p>
         </div>
         <p class="site-description motion-element"></p>
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -217,7 +220,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -241,7 +244,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#以下是解决方案"><span class="nav-number">1.</span> <span class="nav-text">以下是解决方案</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -259,11 +262,11 @@
         <div class="copyright">
   
   &copy; &nbsp; 
-  2015
+  2017
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author">John Doe</span>
+  <span class="author">HiHi</span>
 </div>
 
 <div class="powered-by">
@@ -273,7 +276,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
@@ -392,6 +395,9 @@
       $.Velocity.RunSequence([
         { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
         { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
         
         { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
       ]);
