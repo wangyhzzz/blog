@@ -123,17 +123,21 @@
 </ul>
 <p>进入正题:</p>
 <ul>
-<li>打开xcode 新建一个项目,如图选择<br><img src="/2015/06/20/osx-06202015/1.png"><br><img src="/2015/06/20/osx-06202015/2.png"></li>
+<li>打开xcode 新建一个项目,如图选择<img src="/blog/2015/06/20/osx-06202015/1.png">
+<img src="/blog/2015/06/20/osx-06202015/2.png"></li>
 <li>直接<code>Command+B</code> 编译,然后找到编译出来的后缀名为convert.action文件,双击安装</li>
-<li>打开Automator,新建一个服务<br><img src="/2015/06/20/osx-06202015/3.png"></li>
-<li>找到刚才双击过的action拖到右边去.<code>Command+S</code>保存,起一个你喜欢的名字.<br><img src="/2015/06/20/osx-06202015/4.png"><br><img src="/2015/06/20/osx-06202015/31.png"></li>
-<li>现在随便找一个文件右键,看看是不是出现了刚才你保存时候用的那个名字<br><img src="/2015/06/20/osx-06202015/5.png"></li>
-<li>接下来,我们把脚本功能放进去回到Automator 右键action,在Finder中显示<br><img src="/2015/06/20/osx-06202015/6.png"></li>
-<li>显示包内容,找到main.command 用文本的方式打开,这里写完你的sh命令保存就会生效了.接下来就看你怎么写shell脚本了<br><img src="/2015/06/20/osx-06202015/7.png"></li>
+<li>打开Automator,新建一个服务<img src="/blog/2015/06/20/osx-06202015/3.png"></li>
+<li>找到刚才双击过的action拖到右边去.<code>Command+S</code>保存,起一个你喜欢的名字.<img src="/blog/2015/06/20/osx-06202015/4.png">
+<img src="/blog/2015/06/20/osx-06202015/31.png"></li>
+<li>现在随便找一个文件右键,看看是不是出现了刚才你保存时候用的那个名字<img src="/blog/2015/06/20/osx-06202015/5.png"></li>
+<li>接下来,我们把脚本功能放进去回到Automator 右键action,在Finder中显示<img src="/blog/2015/06/20/osx-06202015/6.png"></li>
+<li>显示包内容,找到main.command 用文本的方式打开,这里写完你的sh命令保存就会生效了.接下来就看你怎么写shell脚本了<img src="/blog/2015/06/20/osx-06202015/7.png"></li>
 <li><p>下面是一段将文件复制到桌面的代码.演示了外界参数传递的过程</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/usr/bin/env sh</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#  main.command</span></span><br><span class="line"><span class="comment">#  convert</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> n</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">cp <span class="variable">$n</span> ~/Desktop/</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在键盘设置里,可以按自己需要关闭这些右键功能<br><img src="/2015/06/20/osx-06202015/8.png"><br>这只是一个基础的例子,更多的Automator的功能等你来挖掘</p>
+<li><p>在键盘设置里,可以按自己需要关闭这些右键功能</p>
+<img src="/blog/2015/06/20/osx-06202015/8.png">
+<p>这只是一个基础的例子,更多的Automator的功能等你来挖掘</p>
 </li>
 </ul>
 
