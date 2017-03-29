@@ -247,6 +247,127 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://wangyhzzz.github.io/blog/blog/2015/06/23/m-06232015/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HiHi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HiHi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2015/06/23/m-06232015/" itemprop="url">
+                  2015年6月23
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-23T20:15:34+08:00">
+                2015-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>生命的道路上出了什么岔子,不能仅靠智力上的理解去化解.这是生命的模式,它在你的体内,深入骨髓.你必须回去.如果你真的想变得自然,你得重度往日的时光……找出来,回归到去过,再度经历它.如果有遗留下什么东西,唯一的方式就是在头脑重新经历它,往回走.再度活过它,而不只是回想它.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://wangyhzzz.github.io/blog/blog/2015/06/20/osx-06202015/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -323,33 +444,18 @@
 
       
         
-          
-            <ul>
+          <ul>
 <li>我会写shell命令完成很多任务.但是每次做一个简单的任务都要输入那么长的shell命令也相当麻烦.</li>
 <li>Alfred的workflow可以完成这么一样转换.但工作中其它的mac机器并没有安装Alfred,而且很多人不愿意输入命令来完成任务,这增加了他们的记忆成本.</li>
 <li>让shell命令跟右键菜单结合起来,将会是一个比较完美的答案.</li>
 </ul>
-<p>进入正题:</p>
-<ul>
-<li>打开xcode 新建一个项目,如图选择<img src="/blog/2015/06/20/osx-06202015/1.png" alt="This is an example image" title="This is an example image">
-<img src="/blog/2015/06/20/osx-06202015/2.png" alt="This is an example image" title="This is an example image"></li>
-<li>直接<code>Command+B</code> 编译,然后找到编译出来的后缀名为convert.action文件,双击安装</li>
-<li>打开Automator,新建一个服务<img src="/blog/2015/06/20/osx-06202015/3.png" alt="This is an example image" title="This is an example image"></li>
-<li>找到刚才双击过的action拖到右边去.<code>Command+S</code>保存,起一个你喜欢的名字.<img src="/blog/2015/06/20/osx-06202015/4.png" alt="This is an example image" title="This is an example image">
-<img src="/blog/2015/06/20/osx-06202015/31.png" alt="This is an example image" title="This is an example image"></li>
-<li>现在随便找一个文件右键,看看是不是出现了刚才你保存时候用的那个名字<img src="/blog/2015/06/20/osx-06202015/5.png" alt="This is an example image" title="This is an example image"></li>
-<li>接下来,我们把脚本功能放进去回到Automator 右键action,在Finder中显示<img src="/blog/2015/06/20/osx-06202015/6.png" alt="This is an example image" title="This is an example image"></li>
-<li>显示包内容,找到main.command 用文本的方式打开,这里写完你的sh命令保存就会生效了.接下来就看你怎么写shell脚本了<img src="/blog/2015/06/20/osx-06202015/7.png" alt="This is an example image" title="This is an example image"></li>
-<li><p>下面是一段将文件复制到桌面的代码.演示了外界参数传递的过程</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/env sh</span></div><div class="line"></div><div class="line"><span class="comment">#  main.command</span></div><div class="line"><span class="comment">#  convert</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="built_in">read</span> n</div><div class="line"><span class="keyword">do</span></div><div class="line">cp <span class="variable">$n</span> ~/Desktop/</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>在键盘设置里,可以按自己需要关闭这些右键功能</p>
-<img src="/blog/2015/06/20/osx-06202015/8.png" alt="This is an example image" title="This is an example image">
-<p>这只是一个基础的例子,更多的Automator的功能等你来挖掘</p>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2015/06/20/osx-06202015/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1380,132 +1486,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://wangyhzzz.github.io/blog/blog/2015/04/12/树莓派安装node/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HiHi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HiHi">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2015/04/12/树莓派安装node/" itemprop="url">
-                  树莓派安装node
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-04-12T21:37:53+08:00">
-                2015-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>在树莓派上折腾node,直接apt-get 下来的版本过于老旧,源码安装也失败了,严重影响正常使用.(例如,无法使用hexo建立博客)</p>
-</blockquote>
-<p> 解决方案:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://node-arm.herokuapp.com/node_latest_armhf.deb</div><div class="line">sudo dpkg -i node_latest_armhf.deb</div></pre></td></tr></table></figure>
-<p><a href="https://github.com/nathanjohnson320/node_arm/" target="_blank" rel="external">node_arm github主页</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1555,7 +1535,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/blog/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1568,7 +1548,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
