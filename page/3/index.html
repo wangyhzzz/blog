@@ -80,22 +80,19 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HiHi">
 <meta property="og:url" content="https://wangyhzzz.github.io/blog/page/3/index.html">
 <meta property="og:site_name" content="HiHi">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HiHi">
-<meta name="twitter:description">
 
 
 
@@ -155,7 +152,7 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
+  
  ">
     <div class="headband"></div>
 
@@ -193,7 +190,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/blog/" rel="section">
+          <a href="/blog/blog/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -203,7 +200,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives" rel="section">
+          <a href="/blog/blog/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -213,7 +210,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags" rel="section">
+          <a href="/blog/blog/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -327,8 +324,8 @@
       
         
           
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br><span class="line">ssserver -p <span class="number">443</span> -k password -m rc4-md5 --user nobody <span class="operator">-d</span> start</span><br></pre></td></tr></table></figure>
-<p>自动安装脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@<span class="number">123.156</span>.<span class="number">78.9</span> curl dn-shell.qbox.me/shadowsocks.sh | sh</span><br></pre></td></tr></table></figure></p>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">apt-get install python-pip</div><div class="line">pip install shadowsocks</div><div class="line">ssserver -p 443 -k password -m rc4-md5 --user nobody <span class="_">-d</span> start</div></pre></td></tr></table></figure>
+<p>自动安装脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@123.156.78.9 curl dn-shell.qbox.me/shadowsocks.sh | sh</div></pre></td></tr></table></figure></p>
 <p><a href="https://github.com/shadowsocks/shadowsocks" target="_blank" rel="external">ShadowSocks github主页</a></p>
 
           
@@ -450,18 +447,18 @@
       
         
           
-            <p><strong> 服务器搭建</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apt-get install pptpd</span><br><span class="line">cat &gt;&gt;/etc/ppp/pptpd.conf&lt;&lt;EOF</span><br><span class="line">localip <span class="number">192.168</span>.<span class="number">0.1</span></span><br><span class="line">remoteip <span class="number">192.168</span>.<span class="number">0.200</span>-<span class="number">238</span>,<span class="number">192.168</span>.<span class="number">0.245</span> </span><br><span class="line">EOF</span><br><span class="line">sed -i <span class="string">'s/#ms-dns/ms-dns/'</span>  /etc/ppp/pptpd-options</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'debian pptpd password *'</span> &gt;&gt;   /etc/ppp/chap-sercet</span><br><span class="line">service pptpd restart</span><br><span class="line">sed -i <span class="string">'s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/'</span> /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br><span class="line"><span class="comment">#eth0需要是能连接外网的那块网卡</span></span><br><span class="line">iptables -t nat -A POSTROUTING <span class="operator">-s</span> <span class="number">192.168</span>.<span class="number">0.0</span>/<span class="number">24</span> -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure></p>
-<p><strong>自动安装脚本</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/lknife/openvz_pptp_centos-debian-ubuntu/raw/master/auto-debian-ovz-pptp.sh</span><br><span class="line">ssh root@<span class="number">123.156</span>.<span class="number">78.9</span> curl dn-shell.qbox.me/vpn.sh | sh</span><br></pre></td></tr></table></figure></p>
+            <p><strong> 服务器搭建</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">apt-get install pptpd</div><div class="line">cat &gt;&gt;/etc/ppp/pptpd.conf&lt;&lt;EOF</div><div class="line">localip 192.168.0.1</div><div class="line">remoteip 192.168.0.200-238,192.168.0.245 </div><div class="line">EOF</div><div class="line">sed -i <span class="string">'s/#ms-dns/ms-dns/'</span>  /etc/ppp/pptpd-options</div><div class="line"><span class="built_in">echo</span> <span class="string">'debian pptpd password *'</span> &gt;&gt;   /etc/ppp/chap-sercet</div><div class="line">service pptpd restart</div><div class="line">sed -i <span class="string">'s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/'</span> /etc/sysctl.conf</div><div class="line">sysctl -p</div><div class="line"><span class="comment">#eth0需要是能连接外网的那块网卡</span></div><div class="line">iptables -t nat -A POSTROUTING <span class="_">-s</span> 192.168.0.0/24 -o eth0 -j MASQUERADE</div></pre></td></tr></table></figure></p>
+<p><strong>自动安装脚本</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://github.com/lknife/openvz_pptp_centos-debian-ubuntu/raw/master/auto-debian-ovz-pptp.sh</div><div class="line">ssh root@123.156.78.9 curl dn-shell.qbox.me/vpn.sh | sh</div></pre></td></tr></table></figure></p>
 <p><strong> 客户端使用</strong></p>
 <ul>
 <li><p>创建并连接vpn </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pptpsetup --create vpn --server <span class="number">123.45</span>.<span class="number">67.89</span> --username debian --password password --encrypt --start</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pptpsetup --create vpn --server 123.45.67.89 --username debian --password password --encrypt --start</div></pre></td></tr></table></figure>
 </li>
 <li><p>临时想断开vpn</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo poff</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo poff</div></pre></td></tr></table></figure>
 </li>
 <li><p>继续连接刚才创建的vpn</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pon vpn</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pon vpn</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -502,7 +499,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/blog/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 
@@ -546,7 +543,7 @@
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives">
+              <a href="/blog/blog/archives">
                 <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>

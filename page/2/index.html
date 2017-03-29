@@ -80,22 +80,19 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HiHi">
 <meta property="og:url" content="https://wangyhzzz.github.io/blog/page/2/index.html">
 <meta property="og:site_name" content="HiHi">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HiHi">
-<meta name="twitter:description">
 
 
 
@@ -155,7 +152,7 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
+  
  ">
     <div class="headband"></div>
 
@@ -193,7 +190,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/blog/" rel="section">
+          <a href="/blog/blog/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -203,7 +200,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives" rel="section">
+          <a href="/blog/blog/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -213,7 +210,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags" rel="section">
+          <a href="/blog/blog/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -334,20 +331,20 @@
 </ul>
 <p>进入正题:</p>
 <ul>
-<li>打开xcode 新建一个项目,如图选择<img src="/blog/2015/06/20/osx-06202015/1.png">
-<img src="/blog/2015/06/20/osx-06202015/2.png"></li>
+<li>打开xcode 新建一个项目,如图选择<img src="/blog/2015/06/20/osx-06202015/1.png" alt="This is an example image" title="This is an example image">
+<img src="/blog/2015/06/20/osx-06202015/2.png" alt="This is an example image" title="This is an example image"></li>
 <li>直接<code>Command+B</code> 编译,然后找到编译出来的后缀名为convert.action文件,双击安装</li>
-<li>打开Automator,新建一个服务<img src="/blog/2015/06/20/osx-06202015/3.png"></li>
-<li>找到刚才双击过的action拖到右边去.<code>Command+S</code>保存,起一个你喜欢的名字.<img src="/blog/2015/06/20/osx-06202015/4.png">
-<img src="/blog/2015/06/20/osx-06202015/31.png"></li>
-<li>现在随便找一个文件右键,看看是不是出现了刚才你保存时候用的那个名字<img src="/blog/2015/06/20/osx-06202015/5.png"></li>
-<li>接下来,我们把脚本功能放进去回到Automator 右键action,在Finder中显示<img src="/blog/2015/06/20/osx-06202015/6.png"></li>
-<li>显示包内容,找到main.command 用文本的方式打开,这里写完你的sh命令保存就会生效了.接下来就看你怎么写shell脚本了<img src="/blog/2015/06/20/osx-06202015/7.png"></li>
+<li>打开Automator,新建一个服务<img src="/blog/2015/06/20/osx-06202015/3.png" alt="This is an example image" title="This is an example image"></li>
+<li>找到刚才双击过的action拖到右边去.<code>Command+S</code>保存,起一个你喜欢的名字.<img src="/blog/2015/06/20/osx-06202015/4.png" alt="This is an example image" title="This is an example image">
+<img src="/blog/2015/06/20/osx-06202015/31.png" alt="This is an example image" title="This is an example image"></li>
+<li>现在随便找一个文件右键,看看是不是出现了刚才你保存时候用的那个名字<img src="/blog/2015/06/20/osx-06202015/5.png" alt="This is an example image" title="This is an example image"></li>
+<li>接下来,我们把脚本功能放进去回到Automator 右键action,在Finder中显示<img src="/blog/2015/06/20/osx-06202015/6.png" alt="This is an example image" title="This is an example image"></li>
+<li>显示包内容,找到main.command 用文本的方式打开,这里写完你的sh命令保存就会生效了.接下来就看你怎么写shell脚本了<img src="/blog/2015/06/20/osx-06202015/7.png" alt="This is an example image" title="This is an example image"></li>
 <li><p>下面是一段将文件复制到桌面的代码.演示了外界参数传递的过程</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/usr/bin/env sh</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#  main.command</span></span><br><span class="line"><span class="comment">#  convert</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> n</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">cp <span class="variable">$n</span> ~/Desktop/</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/env sh</span></div><div class="line"></div><div class="line"><span class="comment">#  main.command</span></div><div class="line"><span class="comment">#  convert</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="built_in">read</span> n</div><div class="line"><span class="keyword">do</span></div><div class="line">cp <span class="variable">$n</span> ~/Desktop/</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>在键盘设置里,可以按自己需要关闭这些右键功能</p>
-<img src="/blog/2015/06/20/osx-06202015/8.png">
+<img src="/blog/2015/06/20/osx-06202015/8.png" alt="This is an example image" title="This is an example image">
 <p>这只是一个基础的例子,更多的Automator的功能等你来挖掘</p>
 </li>
 </ul>
@@ -471,9 +468,9 @@
       
         
           
-            <p>在global 命令之后接普通操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除匹配后的一个html标签内容</span></span><br><span class="line">g/re/normal ndit</span><br></pre></td></tr></table></figure></p>
-<p>在global 命令之后接多个命令,可以使用’|’符号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印匹配后的一个词</span></span><br><span class="line">g/re/normal <span class="string">"ayiw|echo @a</span></span><br></pre></td></tr></table></figure></p>
-<p>在vim中对匹配进行运算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匹配数字,并对其整数部分除2保存.</span></span><br><span class="line"><span class="comment"># eval真NB,这里想输入一个'/'g来进行除2的操作有点困难,因为会被判定为替换命令的结束符处理掉</span></span><br><span class="line"><span class="comment"># 最后发现了eval这么一个救星</span></span><br><span class="line"><span class="comment"># 本来准备展示一下string(expand("&lt;cword&gt;")/2.0) 这种写法的,但没下面的方式简洁</span></span><br><span class="line">%s/\d\+/\=(<span class="built_in">eval</span>(submatch(<span class="number">0</span>).<span class="string">"\/"</span>.<span class="number">2</span>))/g</span><br></pre></td></tr></table></figure></p>
+            <p>在global 命令之后接普通操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 删除匹配后的一个html标签内容</span></div><div class="line">g/re/normal ndit</div></pre></td></tr></table></figure></p>
+<p>在global 命令之后接多个命令,可以使用’|’符号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 打印匹配后的一个词</span></div><div class="line">g/re/normal <span class="string">"ayiw|echo @a</span></div></pre></td></tr></table></figure></p>
+<p>在vim中对匹配进行运算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 匹配数字,并对其整数部分除2保存.</span></div><div class="line"><span class="comment"># eval真NB,这里想输入一个'/'g来进行除2的操作有点困难,因为会被判定为替换命令的结束符处理掉</span></div><div class="line"><span class="comment"># 最后发现了eval这么一个救星</span></div><div class="line"><span class="comment"># 本来准备展示一下string(expand("&lt;cword&gt;")/2.0) 这种写法的,但没下面的方式简洁</span></div><div class="line">%s/\d\+/\=(<span class="built_in">eval</span>(submatch(0).<span class="string">"\/"</span>.2))/g</div></pre></td></tr></table></figure></p>
 <p>更多vim实用的内建函数,可以通过 :h functions 进行查询</p>
 
           
@@ -596,7 +593,7 @@
         
           
             <p><strong> 虽然苹果官方似乎不让开发者这么做(appStore上没见过几个能主动退出自己的应用),但实际工作中确实有需要去主动退出应用.</strong></p>
-<p><strong> 功能代码 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[UIApplication sharedApplication] <span class="built_in">suspend</span>];</span><br><span class="line"><span class="built_in">exit</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong> 功能代码 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication] <span class="built_in">suspend</span>];</div><div class="line"><span class="built_in">exit</span>(0);</div></pre></td></tr></table></figure></p>
 <p>调用以上代码之后,应用就会自动缩回后台,然后退出.让整个程序看起来并不是像闪退<br><a href="http://blog.ib-soft.net/2013/01/programmatically-terminate-ios.html" target="_blank" rel="external">参考链接:http://blog.ib-soft.net/2013/01/programmatically-terminate-ios.html</a></p>
 
           
@@ -1225,7 +1222,7 @@
             <blockquote>
 <p>“在管道中与vim进行交互”</p>
 </blockquote>
-<p>这个需求比较怪,但今天刚好有同学有出现这样的需求,今天网上找了一下,确实有这样的方法,特此记录一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"Goappend some text ^[:ZZ"</span>|vi text.txt</span><br></pre></td></tr></table></figure></p>
+<p>这个需求比较怪,但今天刚好有同学有出现这样的需求,今天网上找了一下,确实有这样的方法,特此记录一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"Goappend some text ^[:ZZ"</span>|vi text.txt</div></pre></td></tr></table></figure></p>
 <p>此条命令会调用vim 追加内容 append some text 到text.txt的尾行<br>需要注意的是,图中的^[其实是一个字符,代码的是esc键.在控制台中的输入方式为control+v 再按esc</p>
 
           
@@ -1347,7 +1344,7 @@
       
         
           
-            <p>向管道流中追加内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls |sed <span class="string">'$a\</span><br><span class="line">blabla'</span></span><br></pre></td></tr></table></figure></p>
+            <p>向管道流中追加内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls |sed <span class="string">'$a\</span></div><div class="line">blabla'</div></pre></td></tr></table></figure></p>
 <p>比较奇怪的是,必需用两行,才能完成任务,缩减为一行的话,会报错</p>
 
           
@@ -1473,7 +1470,7 @@
 <p>在树莓派上折腾node,直接apt-get 下来的版本过于老旧,源码安装也失败了,严重影响正常使用.(例如,无法使用hexo建立博客)</p>
 </blockquote>
 <p> 解决方案:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://node-arm.herokuapp.com/node_latest_armhf.deb</span><br><span class="line">sudo dpkg -i node_latest_armhf.deb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://node-arm.herokuapp.com/node_latest_armhf.deb</div><div class="line">sudo dpkg -i node_latest_armhf.deb</div></pre></td></tr></table></figure>
 <p><a href="https://github.com/nathanjohnson320/node_arm/" target="_blank" rel="external">node_arm github主页</a></p>
 
           
@@ -1513,7 +1510,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1557,7 +1554,7 @@
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives">
+              <a href="/blog/blog/archives">
                 <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>

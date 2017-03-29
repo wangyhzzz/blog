@@ -80,7 +80,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
 
 
 
@@ -95,6 +95,7 @@
 <meta property="og:site_name" content="HiHi">
 <meta property="og:description" content="使用makefile的规则进行一些更高级的操作,例如把全部的js文件编译成jsc文件12345all:$JSCS    echo done%.jsc:%.js    @compile %^    $JSBCC %^ %@
 简单解说,%^代表依赖文件,%@代表生成文件.@是注释符号">
+<meta property="og:updated_time" content="2015-07-25T02:40:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="makefile">
 <meta name="twitter:description" content="使用makefile的规则进行一些更高级的操作,例如把全部的js文件编译成jsc文件12345all:$JSCS    echo done%.jsc:%.js    @compile %^    $JSBCC %^ %@
@@ -194,7 +195,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/blog/" rel="section">
+          <a href="/blog/blog/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -204,7 +205,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives" rel="section">
+          <a href="/blog/blog/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -214,7 +215,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags" rel="section">
+          <a href="/blog/blog/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -323,7 +324,7 @@
       
 
       
-        <p>使用makefile的规则进行一些更高级的操作,例如把全部的js文件编译成jsc文件<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">all:$JSCS</span><br><span class="line">    echo done</span><br><span class="line">%.jsc:%.js</span><br><span class="line">    @compile %^</span><br><span class="line">    $JSBCC %^ %@</span><br></pre></td></tr></table></figure></p>
+        <p>使用makefile的规则进行一些更高级的操作,例如把全部的js文件编译成jsc文件<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">all:$JSCS</div><div class="line">    echo done</div><div class="line">%.jsc:%.js</div><div class="line">    @compile %^</div><div class="line">    $JSBCC %^ %@</div></pre></td></tr></table></figure></p>
 <p>简单解说,%^代表依赖文件,%@代表生成文件.@是注释符号</p>
 
       
@@ -441,7 +442,7 @@
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives">
+              <a href="/blog/blog/archives">
                 <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>

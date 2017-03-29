@@ -80,7 +80,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
 
 
 
@@ -97,6 +97,7 @@
 <meta property="og:description" content="在global 命令之后接普通操作12# 删除匹配后的一个html标签内容g/re/normal ndit
 在global 命令之后接多个命令,可以使用’|’符号12# 打印匹配后的一个词g/re/normal &quot;ayiw|echo @a
 在vim中对匹配进行运算12345# 匹配数字,并对其整数部分除2保存.# eval真NB,这里想输入一个&apos;/&apos;g来进行除2的操作有点困难,因为会被判定为替换命">
+<meta property="og:updated_time" content="2015-06-20T01:52:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim中global命令的扩展">
 <meta name="twitter:description" content="在global 命令之后接普通操作12# 删除匹配后的一个html标签内容g/re/normal ndit
@@ -197,7 +198,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/blog/" rel="section">
+          <a href="/blog/blog/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -207,7 +208,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives" rel="section">
+          <a href="/blog/blog/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -217,7 +218,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags" rel="section">
+          <a href="/blog/blog/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -326,9 +327,9 @@
       
 
       
-        <p>在global 命令之后接普通操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除匹配后的一个html标签内容</span></span><br><span class="line">g/re/normal ndit</span><br></pre></td></tr></table></figure></p>
-<p>在global 命令之后接多个命令,可以使用’|’符号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印匹配后的一个词</span></span><br><span class="line">g/re/normal <span class="string">"ayiw|echo @a</span></span><br></pre></td></tr></table></figure></p>
-<p>在vim中对匹配进行运算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匹配数字,并对其整数部分除2保存.</span></span><br><span class="line"><span class="comment"># eval真NB,这里想输入一个'/'g来进行除2的操作有点困难,因为会被判定为替换命令的结束符处理掉</span></span><br><span class="line"><span class="comment"># 最后发现了eval这么一个救星</span></span><br><span class="line"><span class="comment"># 本来准备展示一下string(expand("&lt;cword&gt;")/2.0) 这种写法的,但没下面的方式简洁</span></span><br><span class="line">%s/\d\+/\=(<span class="built_in">eval</span>(submatch(<span class="number">0</span>).<span class="string">"\/"</span>.<span class="number">2</span>))/g</span><br></pre></td></tr></table></figure></p>
+        <p>在global 命令之后接普通操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 删除匹配后的一个html标签内容</span></div><div class="line">g/re/normal ndit</div></pre></td></tr></table></figure></p>
+<p>在global 命令之后接多个命令,可以使用’|’符号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 打印匹配后的一个词</span></div><div class="line">g/re/normal <span class="string">"ayiw|echo @a</span></div></pre></td></tr></table></figure></p>
+<p>在vim中对匹配进行运算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 匹配数字,并对其整数部分除2保存.</span></div><div class="line"><span class="comment"># eval真NB,这里想输入一个'/'g来进行除2的操作有点困难,因为会被判定为替换命令的结束符处理掉</span></div><div class="line"><span class="comment"># 最后发现了eval这么一个救星</span></div><div class="line"><span class="comment"># 本来准备展示一下string(expand("&lt;cword&gt;")/2.0) 这种写法的,但没下面的方式简洁</span></div><div class="line">%s/\d\+/\=(<span class="built_in">eval</span>(submatch(0).<span class="string">"\/"</span>.2))/g</div></pre></td></tr></table></figure></p>
 <p>更多vim实用的内建函数,可以通过 :h functions 进行查询</p>
 
       
@@ -446,7 +447,7 @@
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives">
+              <a href="/blog/blog/archives">
                 <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>

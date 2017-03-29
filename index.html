@@ -80,22 +80,19 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HiHi">
 <meta property="og:url" content="https://wangyhzzz.github.io/blog/index.html">
 <meta property="og:site_name" content="HiHi">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HiHi">
-<meta name="twitter:description">
 
 
 
@@ -155,7 +152,7 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
+  
  ">
     <div class="headband"></div>
 
@@ -193,7 +190,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/blog/" rel="section">
+          <a href="/blog/blog/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -203,7 +200,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives" rel="section">
+          <a href="/blog/blog/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -213,7 +210,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags" rel="section">
+          <a href="/blog/blog/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -1078,7 +1075,7 @@
       
         
           
-            <p>guile是lisp语言scheme分支的一个实现.安装了之后,默认是不开启readline功能的.<br>可以在~/.guile中增加以下内容以开启相关功能<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">use-modules</span> <span class="list">(<span class="keyword">ice-9</span> readline)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">activate-readline</span>)</span></span><br></pre></td></tr></table></figure></p>
+            <p>guile是lisp语言scheme分支的一个实现.安装了之后,默认是不开启readline功能的.<br>可以在~/.guile中增加以下内容以开启相关功能<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="name">use-modules</span> (<span class="name">ice-9</span> readline))</div><div class="line">(<span class="name">activate-readline</span>)</div></pre></td></tr></table></figure></p>
 
           
         
@@ -1325,7 +1322,7 @@
       
         
           
-            <p>使用makefile的规则进行一些更高级的操作,例如把全部的js文件编译成jsc文件<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">all:$JSCS</span><br><span class="line">    echo done</span><br><span class="line">%.jsc:%.js</span><br><span class="line">    @compile %^</span><br><span class="line">    $JSBCC %^ %@</span><br></pre></td></tr></table></figure></p>
+            <p>使用makefile的规则进行一些更高级的操作,例如把全部的js文件编译成jsc文件<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">all:$JSCS</div><div class="line">    echo done</div><div class="line">%.jsc:%.js</div><div class="line">    @compile %^</div><div class="line">    $JSBCC %^ %@</div></pre></td></tr></table></figure></p>
 <p>简单解说,%^代表依赖文件,%@代表生成文件.@是注释符号</p>
 
           
@@ -1530,7 +1527,7 @@
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/blog/archives">
+              <a href="/blog/blog/archives">
                 <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
