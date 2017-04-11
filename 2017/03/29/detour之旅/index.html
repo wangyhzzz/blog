@@ -87,22 +87,25 @@
 
 
 
-<meta name="description" content="Windows hook API 可以使用 微软官方的Detours但这里发现了一个mingw hook 库OpenThread 错误 WINVER=0x0500
-http://git.oschina.net/wangyhzzz/port-mingw
-先占坑https://www.codeproject.com/Articles/44326/MinHook-The-Minimalistic-x-x">
+<meta name="description" content="之前有做个一个工具,在魔兽里绘制自己要的图,当时使用了第三方绘图方法
+电脑从win7升级到win10之后,第三方绘图方法失效了
+现准备自己hook d3d绘图函数
+本文主讲 用 mingw 去 hook api">
 <meta property="og:type" content="article">
-<meta property="og:title" content="detour之旅">
+<meta property="og:title" content="Hook API (使用Mingw)">
 <meta property="og:url" content="https://wangyhzzz.github.io/blog/2017/03/29/detour之旅/index.html">
 <meta property="og:site_name" content="HiHi">
-<meta property="og:description" content="Windows hook API 可以使用 微软官方的Detours但这里发现了一个mingw hook 库OpenThread 错误 WINVER=0x0500
-http://git.oschina.net/wangyhzzz/port-mingw
-先占坑https://www.codeproject.com/Articles/44326/MinHook-The-Minimalistic-x-x">
-<meta property="og:updated_time" content="2017-03-29T15:57:15.000Z">
+<meta property="og:description" content="之前有做个一个工具,在魔兽里绘制自己要的图,当时使用了第三方绘图方法
+电脑从win7升级到win10之后,第三方绘图方法失效了
+现准备自己hook d3d绘图函数
+本文主讲 用 mingw 去 hook api">
+<meta property="og:updated_time" content="2017-04-01T08:26:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="detour之旅">
-<meta name="twitter:description" content="Windows hook API 可以使用 微软官方的Detours但这里发现了一个mingw hook 库OpenThread 错误 WINVER=0x0500
-http://git.oschina.net/wangyhzzz/port-mingw
-先占坑https://www.codeproject.com/Articles/44326/MinHook-The-Minimalistic-x-x">
+<meta name="twitter:title" content="Hook API (使用Mingw)">
+<meta name="twitter:description" content="之前有做个一个工具,在魔兽里绘制自己要的图,当时使用了第三方绘图方法
+电脑从win7升级到win10之后,第三方绘图方法失效了
+现准备自己hook d3d绘图函数
+本文主讲 用 mingw 去 hook api">
 
 
 
@@ -111,7 +114,7 @@ http://git.oschina.net/wangyhzzz/port-mingw
   var CONFIG = {
     root: '/blog/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -136,7 +139,7 @@ http://git.oschina.net/wangyhzzz/port-mingw
 
 
 
-  <title> detour之旅 | HiHi </title>
+  <title> Hook API (使用Mingw) | HiHi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +279,7 @@ http://git.oschina.net/wangyhzzz/port-mingw
             
             
               
-                detour之旅
+                Hook API (使用Mingw)
               
             
           </h1>
@@ -327,9 +330,28 @@ http://git.oschina.net/wangyhzzz/port-mingw
       
 
       
-        <p>Windows hook API 可以使用 微软官方的Detours<br>但这里发现了一个mingw hook 库<br>OpenThread 错误 WINVER=0x0500</p>
-<p><a href="http://git.oschina.net/wangyhzzz/port-mingw" target="_blank" rel="external">http://git.oschina.net/wangyhzzz/port-mingw</a></p>
-<p>先占坑<br><a href="https://www.codeproject.com/Articles/44326/MinHook-The-Minimalistic-x-x-API-Hooking-Libra" target="_blank" rel="external">https://www.codeproject.com/Articles/44326/MinHook-The-Minimalistic-x-x-API-Hooking-Libra</a></p>
+        <ul>
+<li>之前有做个一个工具,在魔兽里绘制自己要的图,当时使用了第三方绘图方法</li>
+<li>电脑从win7升级到win10之后,第三方绘图方法失效了</li>
+<li>现准备自己hook d3d绘图函数</li>
+<li>本文主讲 用 mingw 去 hook api </li>
+</ul>
+<a id="more"></a>
+<p>在 Windows下hook API 可以考虑搭配Visual Studio 使用微软官方的Detours库<br>个人偏好使用mingw自己写,且找到了一个支持mingw的第三方hook库开始api拦截</p>
+<p>在codeproject上找到的相关资料<br><a href="https://www.codeproject.com/Articles/44326/MinHook-The-Minimalistic-x-x-API-Hooking-Libra" target="_blank" rel="external">https://www.codeproject.com/Articles/44326/MinHook-The-Minimalistic-x-x-API-Hooking-Libra</a><br><a href="http://www.cnblogs.com/devymex/archive/2011/12/31/2308481.html" target="_blank" rel="external">http://www.cnblogs.com/devymex/archive/2011/12/31/2308481.html</a></p>
+<h1 id="创建测试工程(API被注入拦截)">创建测试工程(API被注入拦截)</h1><p>先创建一个test.exe 调用 test_d.dll 的prin方法进行输出<br>test.cpp<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test.exe</div></pre></td></tr></table></figure></p>
+<p>test_d.cpp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test.cpp</div></pre></td></tr></table></figure></p>
+<p>使用g++编译</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g++</div></pre></td></tr></table></figure>
+<p>执行test.exe 将看到输出<br>pic</p>
+<h1 id="编译minhook动态库">编译minhook动态库</h1><h1 id="创建用来注入的dll">创建用来注入的dll</h1><p>将minhook头文件和dll复制到工程目录<br>创建代码文件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>链接编译成dll</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g++ shared</div></pre></td></tr></table></figure>
+<h1 id="创建hook程序">创建hook程序</h1><p>这里调用了其他人提供的代码,通过进程名创建远程线程加载我们的hook.dll</p>
+<h1 id="运行测试">运行测试</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test.exe</div></pre></td></tr></table></figure>
+<p>hook<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hook.exe test.exe dll.dll</div></pre></td></tr></table></figure></p>
+<p>可以看到,此刻,代码已经被替换为我们的了<br>完.<br>OpenThread 错误 WINVER=0x0500</p>
 
       
     </div>
@@ -386,6 +408,10 @@ http://git.oschina.net/wangyhzzz/port-mingw
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/blog/2017/03/31/jq/" rel="prev" title="使用jq在xml文件中收集内容">
+                使用jq在xml文件中收集内容 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -431,8 +457,17 @@ http://git.oschina.net/wangyhzzz/port-mingw
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/blog/images/avatar.gif"
@@ -447,7 +482,7 @@ http://git.oschina.net/wangyhzzz/port-mingw
           
             <div class="site-state-item site-state-posts">
               <a href="/blog/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -485,6 +520,22 @@ http://git.oschina.net/wangyhzzz/port-mingw
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建测试工程(API被注入拦截)"><span class="nav-number">1.</span> <span class="nav-text">创建测试工程(API被注入拦截)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译minhook动态库"><span class="nav-number">2.</span> <span class="nav-text">编译minhook动态库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建用来注入的dll"><span class="nav-number">3.</span> <span class="nav-text">创建用来注入的dll</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建hook程序"><span class="nav-number">4.</span> <span class="nav-text">创建hook程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行测试"><span class="nav-number">5.</span> <span class="nav-text">运行测试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

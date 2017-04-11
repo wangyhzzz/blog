@@ -101,7 +101,7 @@
   var CONFIG = {
     root: '/blog/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -247,6 +247,133 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://wangyhzzz.github.io/blog/blog/2017/03/31/jq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HiHi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HiHi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2017/03/31/jq/" itemprop="url">
+                  使用jq在xml文件中收集内容
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-31T10:32:24+08:00">
+                2017-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>“把所有CCB文件中的CCLabelTTF中写的字符串收集出来”</p>
+<p>注:CCB文件是cocos builder生成的xml文件</p>
+</blockquote>
+<p><a href="https://stedolan.github.io/jq/" target="_blank" rel="external">jq</a> 是一个命令行上使用的实用json数据处理器<br>思路:我们可以先使用macOS上的<code>plutil</code>将ccb文件的xml转换为json,供给<code>jq</code>处理<br>全部代码如下:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">find . -name <span class="string">'*.ccb'</span> | <span class="keyword">while</span> <span class="built_in">read</span> n</div><div class="line"><span class="keyword">do</span></div><div class="line">    plutil -convert json <span class="variable">$n</span> -o - |jq .nodeGraph.children | jq <span class="string">'..|select(.baseClass? == "CCLabelTTF") | .properties |..|select(.name? == "string") | .value'</span> | sed <span class="string">"s@^@<span class="variable">$n</span> : @"</span></div><div class="line"><span class="keyword">done</span> &gt; ccbv.txt</div><div class="line"><span class="comment">#plutil转换到stdout之后,使用jq作后续处理</span></div><div class="line"><span class="comment">#这行代码太长了,要自行往后拖一下</span></div></pre></td></tr></table></figure>
+<p><code>jq</code>的完整使用手册:<a href="https://stedolan.github.io/jq/manual/" target="_blank" rel="external">https://stedolan.github.io/jq/manual/</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://wangyhzzz.github.io/blog/blog/2017/03/29/detour之旅/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -270,7 +397,7 @@
               
                 
                 <a class="post-title-link" href="/blog/2017/03/29/detour之旅/" itemprop="url">
-                  detour之旅
+                  Hook API (使用Mingw)
                 </a>
               
             
@@ -323,12 +450,19 @@
 
       
         
-          
-            <p>Windows hook API 可以使用 微软官方的Detours<br>但这里发现了一个mingw hook 库<br>OpenThread 错误 WINVER=0x0500</p>
-<p><a href="http://git.oschina.net/wangyhzzz/port-mingw" target="_blank" rel="external">http://git.oschina.net/wangyhzzz/port-mingw</a></p>
-<p>先占坑<br><a href="https://www.codeproject.com/Articles/44326/MinHook-The-Minimalistic-x-x-API-Hooking-Libra" target="_blank" rel="external">https://www.codeproject.com/Articles/44326/MinHook-The-Minimalistic-x-x-API-Hooking-Libra</a></p>
-
-          
+          <ul>
+<li>之前有做个一个工具,在魔兽里绘制自己要的图,当时使用了第三方绘图方法</li>
+<li>电脑从win7升级到win10之后,第三方绘图方法失效了</li>
+<li>现准备自己hook d3d绘图函数</li>
+<li>本文主讲 用 mingw 去 hook api </li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2017/03/29/detour之旅/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -448,7 +582,7 @@
         
           
             <ul>
-<li>前两天我重感冒,卧床休息.锤子得做作业,又想有人陪他,便坐在我的床边做.我从被窝伸手摸摸他的头,无人说话,只有沙沙的写字声</li>
+<li>前两天我重感冒,卧床休息.孩子得做作业,又想有人陪他,便坐在我的床边做.我从被窝伸手摸摸他的头,无人说话,只有沙沙的写字声</li>
 <li>这场景,令我回想起作家龙应台写过的一个细节.她去看望老年痴呆症的母亲,买了很多不同颜色的指甲油,专门用来与母亲消磨卧房时光,因为母亲年轻时爱美</li>
 <li>龙应台写道:”我们没法交谈,但是,谁说交谈是唯一的相处方式呢?”人,生而独孤,只有这些静默的游戏,静悄悄地牵动着我们的心.</li>
 </ul>
@@ -1359,128 +1493,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://wangyhzzz.github.io/blog/blog/2015/07/25/makefile/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HiHi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HiHi">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2015/07/25/makefile/" itemprop="url">
-                  makefile
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-07-25T10:12:58+08:00">
-                2015-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用makefile的规则进行一些更高级的操作,例如把全部的js文件编译成jsc文件<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">all:$JSCS</div><div class="line">    @echo done</div><div class="line">%.jsc:%.js</div><div class="line">    $JSBCC %^ %@</div></pre></td></tr></table></figure></p>
-<p>简单解说,%^代表依赖文件,%@代表生成文件.@是静默输出</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1530,7 +1542,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/blog/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
